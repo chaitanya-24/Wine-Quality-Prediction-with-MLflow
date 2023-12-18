@@ -1,5 +1,7 @@
 # Wine-Quality-Prediction-with-MLflow
 
+### The project is currently in development phase. 
+
 ## Workflows
 
 1. Update config.yaml
@@ -11,6 +13,7 @@
 7. Update the pipeline 
 8. Update the main.py
 9. Update the app.py
+<<<<<<< HEAD
 
 
 # How to run?
@@ -77,3 +80,5 @@ export MLFLOW_TRACKING_USERNAME=chaitanya-24
 export MLFLOW_TRACKING_PASSWORD=be00d7047851daf8623880cf2d283725cc59f763
 
 ```
+=======
+>>>>>>> 8501e089c94ac7fd91ee1272559e4d031964ef0c
