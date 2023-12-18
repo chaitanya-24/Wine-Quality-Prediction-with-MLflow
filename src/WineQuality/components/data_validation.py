@@ -1,6 +1,6 @@
 import os
 from WineQuality import logger
-from WineQuality.config.configuration import DataValidationConfig
+from WineQuality.entity.config_entity import DataValidationConfig
 import pandas as pd
 
 class DataValidation:
