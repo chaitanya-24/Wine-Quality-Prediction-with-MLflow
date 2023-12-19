@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Wine-Quality-Prediction-with-MLflow/mlruns/0/1e4bfc0c7fe54425ba4bbcc62e110109/artifacts
+end_time: 1702909403836
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1e4bfc0c7fe54425ba4bbcc62e110109
+run_name: gaudy-calf-955
+run_uuid: 1e4bfc0c7fe54425ba4bbcc62e110109
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702909398560
+status: 3
+tags: []
+user_id: csawa

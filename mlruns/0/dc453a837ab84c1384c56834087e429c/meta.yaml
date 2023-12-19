@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Wine-Quality-Prediction-with-MLflow/mlruns/0/dc453a837ab84c1384c56834087e429c/artifacts
+end_time: 1702909412267
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: dc453a837ab84c1384c56834087e429c
+run_name: classy-mole-559
+run_uuid: dc453a837ab84c1384c56834087e429c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702909407966
+status: 3
+tags: []
+user_id: csawa
