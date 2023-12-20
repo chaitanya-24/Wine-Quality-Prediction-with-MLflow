@@ -144,6 +144,8 @@ export MLFLOW_TRACKING_PASSWORD=be00d7047851daf8623880cf2d283725cc59f763
 
 	sudo usermod -aG docker ubuntu
 
+ 	newgrp docker
+
 	 
 	
 # 6. Configure EC2 as self-hosted runner:
