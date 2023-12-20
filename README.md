@@ -82,7 +82,6 @@ export MLFLOW_TRACKING_PASSWORD=be00d7047851daf8623880cf2d283725cc59f763
 ```
 
 
-
 # AWS-CICD-Deployment-with-Github-Actions
 
 ## 1. Login to AWS console.
@@ -159,9 +158,6 @@ export MLFLOW_TRACKING_PASSWORD=be00d7047851daf8623880cf2d283725cc59f763
 
     ECR_REPOSITORY_NAME = simple-app
 
-
-
-
 ## About MLflow 
 MLflow
 
@@ -169,3 +165,7 @@ MLflow
  - Trace all of your expriements
  - Logging & tagging your model
 
+
+![w1](https://github.com/chaitanya-24/Wine-Quality-Prediction-with-MLflow/assets/62403348/525a232d-d539-4110-9f9f-90eb1d6de81a)
+![w2](https://github.com/chaitanya-24/Wine-Quality-Prediction-with-MLflow/assets/62403348/f3de9dd0-38b3-49bd-a877-90bb0c5abe6d)
+![w3](https://github.com/chaitanya-24/Wine-Quality-Prediction-with-MLflow/assets/62403348/4483db9f-c353-4a8d-b1c4-617083682b92)
