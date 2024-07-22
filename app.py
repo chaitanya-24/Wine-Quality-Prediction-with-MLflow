@@ -39,7 +39,10 @@ def index():
             data = np.array(data).reshape(1, 11)
             
             obj = PredictionPipeline()
-            predict = obj.predict(data)
+            predict = obj.predict(data)[0]
+
+            predict = round(predict, 3)
+
 
             return render_template('results.html', prediction = str(predict))
 

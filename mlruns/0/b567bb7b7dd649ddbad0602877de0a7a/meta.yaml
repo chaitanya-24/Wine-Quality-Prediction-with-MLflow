@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Wine-Quality-Prediction-with-MLflow/mlruns/0/b567bb7b7dd649ddbad0602877de0a7a/artifacts
+end_time: 1707493772641
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b567bb7b7dd649ddbad0602877de0a7a
+run_name: abrasive-dove-470
+run_uuid: b567bb7b7dd649ddbad0602877de0a7a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1707493767454
+status: 3
+tags: []
+user_id: csawa

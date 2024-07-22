@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Wine-Quality-Prediction-with-MLflow/mlruns/0/7d16e5a897744da59ee20b5bc4c45cb3/artifacts
+end_time: 1718704487615
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7d16e5a897744da59ee20b5bc4c45cb3
+run_name: agreeable-kite-914
+run_uuid: 7d16e5a897744da59ee20b5bc4c45cb3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718704481491
+status: 3
+tags: []
+user_id: csawa
