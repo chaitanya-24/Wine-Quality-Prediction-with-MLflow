@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/csawa/Desktop/Wine-Quality-Prediction-with-MLflow/mlruns/0/c5c46aca492446759f1ff5f3da4f3fcc/artifacts
+end_time: 1724955189617
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c5c46aca492446759f1ff5f3da4f3fcc
+run_name: whimsical-bee-342
+run_uuid: c5c46aca492446759f1ff5f3da4f3fcc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724955176874
+status: 3
+tags: []
+user_id: csawa

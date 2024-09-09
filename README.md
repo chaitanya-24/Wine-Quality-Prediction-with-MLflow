@@ -1,176 +1,204 @@
-# Wine-Quality-Prediction-with-MLflow
+# Wine Quality Prediction using MLflow  
 
-- The project uses the UCI Wine Quality Dataset, which includes features like ‘fixed acidity’, 
-‘pH’, and ‘residual sugar’ to train and predict the quality of wine.
-- The project uses MLflow which is used for experiment tracking, model management, and 
-deployment
-- Deployment is done using AWS EC2 with an app runner.
+## Project Overview
+
+The Wine Quality Prediction project aims to predict the quality of wine based on several physicochemical properties such as acidity, pH, and sugar content using a machine learning model. The project uses the UCI Wine Quality Dataset and follows an end-to-end machine learning pipeline. The pipeline involves data ingestion, validation, transformation, model training, evaluation, and deployment using GitHub Actions and Flask.
+
+**MLflow** is employed to track experiments and handle the model registry, while the deployment process is automated using **GitHub Actions** with a **Flask** API interface for prediction.
+
+### Key Features
+- **End-to-End ML Pipeline**: From data ingestion to model deployment.
+- **MLflow Integration**: Experiment tracking, logging metrics, and registering models.
+- **CI/CD Pipeline**: Using GitHub Actions for continuous integration and deployment.
+- **API Interface**: Built using Flask for real-time predictions.
+- **Dockerized Deployment**: Deploy models via Docker on AWS EC2 instances.
+
+---
+
+## Project Components
+
+1. **Data Ingestion**
+   - Fetching the dataset from the UCI Wine Quality repository
+   - Features include:
+     - Fixed Acidity
+     - Volatile Acidity
+     - Citric Acid
+     - Residual Sugar
+     - Chlorides
+     - Free Sulfur Dioxide
+     - Total Sulfur Dioxide
+     - Density
+     - pH
+     - Sulphates
+     - Alcohol
+
+2. **Data Validation**
+   - Checking for missing/null values
+   - Validating data types and feature ranges
+
+3. **Data Transformation**
+   - Scaling features
+   - Splitting the dataset into training and testing sets
+   - Label creation for wine quality
+
+4. **Model Training**
+   - Train the model using ElasticNet Regression
+   - Track experiments with MLflow, logging metrics like accuracy, precision, and F1-score
+
+5. **Model Evaluation**
+   - Evaluation metrics such as:
+     - MAE
+     - MSE
+     - R2 Score
+
+6. **Train Pipeline**
+   - Orchestrates the entire process:
+     - Triggers data ingestion, validation, transformation
+     - Logs metrics and registers models in the MLflow registry
+
+7. **Prediction Pipeline**
+   - Accepts new inputs (wine features)
+   - Provides real-time predictions
+
+8. **Deployment**
+   - The selected model is dockerized and deployed on an AWS EC2 instance
+   - The deployment process is automated using GitHub Actions
+   - The Flask API interface is built to accept requests and return predictions
+
+9. **CI/CD Pipeline**
+   - GitHub Actions handles:
+     - Continuous integration: running tests on commits
+     - Continuous deployment: builds Docker image and deploys it on AWS EC2
+
+---
 
 ## Workflows
-
-1. Update config.yaml
-2. Update schema.yaml
-3. Update params.yaml
-4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline 
-8. Update the main.py
-9. Update the app.py
-<<<<<<< HEAD
+- Update `config.yaml`
+- Update `schema.yaml`
+- Update `params.yaml`
+- Update the entity
+- Update the configuration manager in the src config
+- Update the components
+- Update the pipeline
+- Update `main.py`
+- Update `app.py`
 
 
-# How to run?
+## How to Run?
 ### STEPS:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/chaitanya-24/Wine-Quality-Prediction-with-MLflow
+   ```
 
-Clone the repository
+2. Create a conda environment:
+   ```lua
+   conda create -n venv python=3.8 -y
+   conda activate venv
+   ```
 
-```bash
-https://github.com/chaitanya-24/Wine-Quality-Prediction-with-MLflow
+3. Install the requirements:
+   ```
+   pip install -r requirements.txt
+   ```
+
+4. Run the training pipeline:
+   ```
+   python main.py
+   ```
+5. Run the Project:
+   ```
+   python app.py
+   ```
+
+### MLflow
+You can start MLflow locally with:
 ```
-### STEP 01- Create a conda environment after opening the repository
-
-```bash
-conda create -n venv python=3.8 -y
-```
-
-```bash
-conda activate venv
-```
-
-
-### STEP 02- install the requirements
-```bash
-pip install -r requirements.txt
-```
-
-
-```bash
-# Finally run the following command
-python app.py
-```
-
-Now,
-```bash
-open up you local host and port
+mlflow ui
 ```
 
+For DAGsHub integration:
+1. Run this to set environment variables:
+   ```arduino
+   export MLFLOW_TRACKING_URI=[Link]
+   export MLFLOW_TRACKING_USERNAME=[Username]
+   export MLFLOW_TRACKING_PASSWORD=[Password]
+   ```
 
+## AWS CI/CD Deployment with GitHub Actions
+### Steps:
+1. Login to AWS console and create an IAM user for deployment with access to:
+   - EC2 for virtual machines
+   - ECR (Elastic Container Registry) to store Docker images
 
-## MLflow
+2. Create ECR Repository to store Docker images
 
-[Documentation](https://mlflow.org/docs/latest/index.html)
+3. Create EC2 Machine (Ubuntu):
+   - Install Docker on EC2:
+     ```vbnet
+     sudo apt-get upgrade -y
+     sudo apt-get upgrade
+     curl -fsSL https://get.docker.com -o get-docker.sh
+     sudo sh get-docker.sh
+     sudo usermod -aG docker ubuntu
+     newgrp docker
+     ```
 
+4. Configure EC2 as Self-Hosted Runner:
+   - Navigate to: GitHub > Actions > New self-hosted runner
+   - Choose OS and run the given commands
 
-##### cmd
-- mlflow ui
+5. Set up GitHub Secrets for AWS:
+   ```makefile
+   AWS_ACCESS_KEY_ID=[Your_Access_Key]
+   AWS_SECRET_ACCESS_KEY=[Your_Secret_Key]
+   AWS_REGION=us-east-1
+   AWS_ECR_LOGIN_URI=[ECR_Login_URI]
+   ECR_REPOSITORY_NAME=simple-app
+   ```
 
-### dagshub
-[dagshub](https://dagshub.com/)
+6. GitHub Actions Deployment:
+   - Build Docker image of the source code
+   - Push the image to ECR
+   - Launch EC2
+   - Pull the image from ECR to EC2
+   - Run Docker image on EC2
 
-MLFLOW_TRACKING_URI=[Link] \
-MLFLOW_TRACKING_USERNAME=[Username] \
-MLFLOW_TRACKING_PASSWORD=[Password] \
-python script.py
+## Getting Started
+### Prerequisites
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/chaitanya-24/wine-quality-prediction.git
+   ```
 
-Run this to export as env variables:
+2. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-```bash
+3. Set up AWS EC2 instance and GitHub Actions for deployment
 
-export MLFLOW_TRACKING_URI=[Link]
+## Tools and Technologies
+- MLflow: For tracking experiments and managing model lifecycle
+- Flask: For building APIs to serve the model
+- GitHub Actions: For continuous integration and deployment
+- Docker: For containerizing the model for deployment
+- AWS EC2: For deployment of the model
+- UCI Wine Quality Dataset: Used for model training
 
-export MLFLOW_TRACKING_USERNAME=[Username]
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-export MLFLOW_TRACKING_PASSWORD=[Password]
+## About MLflow
+- Production Grade: MLflow is a scalable tool that ensures reproducibility in model training
+- Experiment Tracking: Easily track all experiments, metrics, parameters, and outcomes
+- Model Registry: Manage multiple versions of models
 
-```
-
-
-# AWS-CICD-Deployment-with-Github-Actions
-
-## 1. Login to AWS console.
-
-## 2. Create IAM user for deployment
-
-	#with specific access
-
-	1. EC2 access : It is virtual machine
-
-	2. ECR: Elastic Container registry to save your docker image in aws
-
-
-	#Description: About the deployment
-
-	1. Build docker image of the source code
-
-	2. Push your docker image to ECR
-
-	3. Launch Your EC2 
-
-	4. Pull Your image from ECR in EC2
-
-	5. Lauch your docker image in EC2
-
-	#Policy:
-
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
-
-	
-## 3. Create ECR repo to store/save docker image
-    <!-- - Save the URI: 802898747809.dkr.ecr.ap-south-1.amazonaws.com/mlproj -->
-    - Save the URI: 802898747809.dkr.ecr.us-east-1.amazonaws.com/mlproj
-
-	
-## 4. Create EC2 machine (Ubuntu) 
- 
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
-
-		
-
-	sudo apt-get upgrade -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
- 	newgrp docker
-
-	 
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-    AWS_ACCESS_KEY_ID=
-
-    AWS_SECRET_ACCESS_KEY=
-
-    AWS_REGION = us-east-1
-
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-    ECR_REPOSITORY_NAME = simple-app
-
-## About MLflow 
-MLflow
-
- - Its Production Grade
- - Trace all of your expriements
- - Logging & tagging your model
-
+## Author
+### Chaitanya Sawant:
+* **[Gmail](mailto:chaitanya.aiwork@gmail.com)**
+* **[Twitter](https://twitter.com/chaitanya_42)**
+#
 
 ![w1](https://github.com/chaitanya-24/Wine-Quality-Prediction-with-MLflow/assets/62403348/525a232d-d539-4110-9f9f-90eb1d6de81a)
 ![w2](https://github.com/chaitanya-24/Wine-Quality-Prediction-with-MLflow/assets/62403348/f3de9dd0-38b3-49bd-a877-90bb0c5abe6d)
