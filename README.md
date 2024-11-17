@@ -1,8 +1,8 @@
-# Wine Quality Prediction using MLflow  
+# WineQuality.ai: ML-Powered Quality Assurance System
 
 ## Project Overview
 
-The Wine Quality Prediction project aims to predict the quality of wine based on several physicochemical properties such as acidity, pH, and sugar content using a machine learning model. The project uses the UCI Wine Quality Dataset and follows an end-to-end machine learning pipeline. The pipeline involves data ingestion, validation, transformation, model training, evaluation, and deployment using GitHub Actions and Flask.
+The project aims to predict the quality of wine based on several physicochemical properties, such as acidity, pH, and sugar content, using a machine learning model. It uses the UCI Wine Quality Dataset and follows an end-to-end machine learning pipeline. The pipeline involves data ingestion, validation, transformation, model training, evaluation, and deployment using GitHub Actions and Flask.
 
 **MLflow** is employed to track experiments and handle the model registry, while the deployment process is automated using **GitHub Actions** with a **Flask** API interface for prediction.
 
